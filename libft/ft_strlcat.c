@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:11:29 by kemmeric          #+#    #+#             */
-/*   Updated: 2018/12/05 17:14:42 by kemmeric         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:49:45 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		i = dstlen;
 		while (i < size - 1)
 			dst[i++] = *src++;
-		dst[i] = '\00';
+		dst[i] = '\0';
 	}
 	return (dstlen + srclen);
 }

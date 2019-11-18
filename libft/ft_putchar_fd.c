@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 16:13:03 by kemmeric          #+#    #+#             */
-/*   Updated: 2018/11/29 16:49:58 by kemmeric         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:52:42 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (c != '\0')
+		write(fd, &c, 1);
 }

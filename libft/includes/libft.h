@@ -6,7 +6,7 @@
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:03:36 by kemmeric          #+#    #+#             */
-/*   Updated: 2019/11/18 17:35:11 by kemmeric         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:55:37 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "string.h"
 # include "stdlib.h"
 # include "errno.h"
+
+# define FT_PAD_LEFT	0
+# define FT_PAD_RIGHT	1
 
 void				*ft_memset(void *h, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -87,6 +90,12 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem));
 
+t_list				*ft_lst_sort(t_list *lst, int (*cmp)(t_list *a, t_list *b));
+t_list				*ft_lst_sort_rev(t_list *lst);
+t_list				*ft_lst_swap(t_list *a, t_list *b);
+int					ft_cycle_detector(t_list *list);
+t_list				**ft_lstcat(t_list **lst1, t_list **lst2);
+
 size_t			ft_next_word(char const *s, size_t *start, char delim,
 	int not_trim_delims);
 size_t				ft_count_words(char const *s, char c);
@@ -104,5 +113,9 @@ int					ft_pow(int nb, unsigned int p);
 int					ft_isupper(int c);
 int					ft_islower(int c);
 size_t				ft_abs(ssize_t nb);
+int					ft_nbrlen(int nb);
+void				ft_putstr_pad(char *str, int size, char c, int pad);
+void				ft_putnbr_pad(int nb, int size, char c, int pad);
+const char			*ft_filename_from_path(char *path);
 
 #endif
