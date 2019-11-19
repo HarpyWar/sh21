@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_pad.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 16:13:03 by kemmeric          #+#    #+#             */
-/*   Updated: 2019/11/06 17:47:34 by kemmeric         ###   ########.fr       */
+/*   Created: 2019/11/06 16:38:11 by kemmeric          #+#    #+#             */
+/*   Updated: 2019/11/06 17:07:41 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+/*
+** Put number with padding
+** size - print size
+** pad = 0 (left) | pad = 1 (right)
+** c - padding char
+*/
+
+void		ft_putnbr_pad(int nb, int size, char c, int pad)
 {
-	if (c != '\0')
-		write(fd, &c, 1);
+	int		i;
+	char	*tmp;
+
+	tmp = ft_itoa(nb);
+	ft_putstr_pad(tmp, size, c, pad);
+	free(tmp);
 }

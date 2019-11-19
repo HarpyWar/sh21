@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_filename_from_path.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 16:13:03 by kemmeric          #+#    #+#             */
-/*   Updated: 2019/11/06 17:47:34 by kemmeric         ###   ########.fr       */
+/*   Created: 2019/11/12 17:53:04 by kemmeric          #+#    #+#             */
+/*   Updated: 2019/11/12 17:57:06 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+const char	*ft_filename_from_path(char *path)
 {
-	if (c != '\0')
-		write(fd, &c, 1);
+	int		i;
+	int		last_slash_pos;
+
+	i = 0;
+	last_slash_pos = 0;
+	while (path[i])
+	{
+		if (path[i] == '/')
+			last_slash_pos = i + 1;
+		i++;
+	}
+	path += last_slash_pos;
+	return (path);
 }

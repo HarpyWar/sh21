@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_cycle_detector.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 16:13:03 by kemmeric          #+#    #+#             */
-/*   Updated: 2019/11/06 17:47:34 by kemmeric         ###   ########.fr       */
+/*   Created: 2019/11/02 13:02:03 by kemmeric          #+#    #+#             */
+/*   Updated: 2019/11/02 13:05:18 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int			ft_cycle_detector(t_list *list)
 {
-	if (c != '\0')
-		write(fd, &c, 1);
+	t_list	*slow;
+	t_list	*fast;
+
+	if (!list)
+		return (0);
+	slow = list;
+	fast = list;
+	while (fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
+			return (1);
+	}
+	return (0);
 }

@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemmeric <kemmeric@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 16:13:03 by kemmeric          #+#    #+#             */
-/*   Updated: 2019/11/06 17:47:34 by kemmeric         ###   ########.fr       */
+/*   Created: 2019/11/06 16:29:07 by kemmeric          #+#    #+#             */
+/*   Updated: 2019/11/06 16:29:17 by kemmeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int			ft_nbrlen(int nb)
 {
-	if (c != '\0')
-		write(fd, &c, 1);
+	char	*tmp;
+	int		len;
+
+	tmp = ft_itoa(nb);
+	len = (int)ft_strlen(tmp);
+	free(tmp);
+	return (len);
 }
